@@ -24,7 +24,7 @@ app.get("/:shortId", async (req, res) => {
       },
     }
   );
-  res.redirect(entry.redirectURL);
+  res.redirect("https://" + entry.redirectURL);
 });
 
 app.listen(PORT, () => {
