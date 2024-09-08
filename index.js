@@ -2,12 +2,14 @@ const express = require("express");
 const { connectToDB } = require("./config/db");
 const urlRoute = require("./routes/url");
 const URL = require("./models/url");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 connectToDB();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/url", urlRoute);
 app.get("/:shortId", async (req, res) => {
